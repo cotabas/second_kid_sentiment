@@ -1,0 +1,27 @@
+<%= form_with(model: kid_vote) do |form| %>
+  <% if kid_vote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(kid_vote.errors.count, "error") %> prohibited this kid_vote from being saved:</h2>
+
+      <ul>
+        <% kid_vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :vote, style: "display: block" %>
+    <%= form.check_box :vote %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
